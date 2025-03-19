@@ -32,6 +32,7 @@
             switch(target.id) {
                 case 'rock':
                     alert("rock");
+                    playRound("rock", getComputerChoice);
                     break;
                 case 'paper':
                     playRound("paper", getComputerChoice);
@@ -60,9 +61,12 @@
             }
         }
 
+        let computerScore = 0;
+        let humanScore = 0;
+
         function playGame() {
-            let humanScore = 0;
-            let computerScore = 0;
+            humanScore = 0;
+            computerScore = 0;
 
             if (humanScore === computerScore) {
                 alert('The game was a draw!');
@@ -71,8 +75,9 @@
             } else {
                 alert('Computer wins the game!');
             }
+        }
 
-            function playRound(humanChoice, computerChoice) {
+        function playRound(humanChoice, computerChoice) {
                 if (humanChoice === computerChoice) {
                     alert("It was a draw! " + numberIntoSymbol(humanChoice) + " ties with " + numberIntoSymbol(computerChoice));
                 } else if (humanChoice === 1 && computerChoice !== 2) {
@@ -89,7 +94,6 @@
                     alert("You lose! " + numberIntoSymbol(humanChoice) + " is beaten by " + numberIntoSymbol(computerChoice));
                 }
             }
-        }
 
         function numberIntoSymbol(num) {
             if (num === 1) {
