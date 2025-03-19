@@ -22,6 +22,8 @@
         body.appendChild(display);
 
         rock.textContent = "ROCK";
+        paper.textContent = "PAPER";
+        scissors.textContent = "SCISSORS";
 
         choices.appendChild(rock);
         choices.appendChild(paper);
@@ -46,7 +48,16 @@
                         console.log("HUMAN:" + humanScore + " COMPUTER:" + computerScore);
                         break;
                 }
-            } else {alert("END");}
+            } else if (humanScore > computerScore) {
+                alert("YOU WIN THE GAME");
+                humanScore = 0;
+                computerScore = 0;
+
+            } else {
+                alert("COMPUTER WINS THE GAME");
+                humanScore = 0;
+                computerScore = 0;
+            }
         })
 
 
