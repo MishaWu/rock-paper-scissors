@@ -31,18 +31,22 @@
 
         choices.addEventListener("click", (event) => {
             let target = event.target;
-
-            switch(target.id) {
-                case 'rock':
-                    playRound(1, getComputerChoice());
-                    break;
-                case 'paper':
-                    playRound(2, getComputerChoice());
-                    break;
-                case 'scissors':
-                    playRound(3, getComputerChoice());
-                    break;
-            }
+            if (humanScore < 5 && computerScore < 5) {
+                switch(target.id) {
+                    case 'rock':
+                        playRound(1, getComputerChoice());
+                        console.log("HUMAN:" + humanScore + " COMPUTER:" + computerScore);
+                        break;
+                    case 'paper':
+                        playRound(2, getComputerChoice());
+                        console.log("HUMAN:" + humanScore + " COMPUTER:" + computerScore);
+                        break;
+                    case 'scissors':
+                        playRound(3, getComputerChoice());
+                        console.log("HUMAN:" + humanScore + " COMPUTER:" + computerScore);
+                        break;
+                }
+            } else {alert("END");}
         })
 
 
@@ -107,7 +111,6 @@
             }
         }
 
-        playGame();
     </script>
 
 </body>
