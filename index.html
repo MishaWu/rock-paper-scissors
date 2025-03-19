@@ -8,6 +8,41 @@
 <body>
     
     <script>
+        const body = document.querySelector("body");
+
+        const rock = document.createElement("button");
+        rock.setAttribute("id", "rock");
+        const paper = document.createElement("button");
+        paper.setAttribute("id", "paper");
+        const scissors = document.createElement("button");
+        scissors.setAttribute("id", "scissors");
+        const choices = document.createElement("div");
+
+        rock.textContent = "ROCK";
+
+        choices.appendChild(rock);
+        choices.appendChild(paper);
+        choices.appendChild(scissors);
+        body.appendChild(choices);
+
+
+        choices.addEventListener("click", (event) => {
+            let target = event.target;
+
+            switch(target.id) {
+                case 'rock':
+                    alert("rock");
+                    break;
+                case 'paper':
+                    playRound("paper", getComputerChoice);
+                    break;
+                case 'scissors':
+                    playRound("scissors", getComputerChoice);
+                    break;
+            }
+        })
+
+
         console.log('WE');
 
         function getComputerChoice() {
@@ -28,14 +63,6 @@
         function playGame() {
             let humanScore = 0;
             let computerScore = 0;
-
-            for (i = 0; i <= 4; i++) {
-                const humanSelection = getHumanChoice();
-                const computerSelection = getComputerChoice();
-                console.log("MACHINE:", computerSelection);
-                console.log("HUMAN:", humanSelection);
-                playRound(humanSelection, computerSelection);
-            }
 
             if (humanScore === computerScore) {
                 alert('The game was a draw!');
