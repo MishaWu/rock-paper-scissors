@@ -18,6 +18,9 @@
         scissors.setAttribute("id", "scissors");
         const choices = document.createElement("div");
 
+        const display = document.createElement("div");
+        body.appendChild(display);
+
         rock.textContent = "ROCK";
 
         choices.appendChild(rock);
@@ -31,14 +34,13 @@
 
             switch(target.id) {
                 case 'rock':
-                    alert("rock");
-                    playRound("rock", getComputerChoice);
+                    playRound(1, getComputerChoice());
                     break;
                 case 'paper':
-                    playRound("paper", getComputerChoice);
+                    playRound(2, getComputerChoice());
                     break;
                 case 'scissors':
-                    playRound("scissors", getComputerChoice);
+                    playRound(3, getComputerChoice());
                     break;
             }
         })
@@ -79,19 +81,19 @@
 
         function playRound(humanChoice, computerChoice) {
                 if (humanChoice === computerChoice) {
-                    alert("It was a draw! " + numberIntoSymbol(humanChoice) + " ties with " + numberIntoSymbol(computerChoice));
+                    display.textContent = ("It was a draw! " + numberIntoSymbol(humanChoice) + " ties with " + numberIntoSymbol(computerChoice));
                 } else if (humanChoice === 1 && computerChoice !== 2) {
                     humanScore++;
-                    alert("You win! " + numberIntoSymbol(humanChoice) + " beats " + numberIntoSymbol(computerChoice));
+                    display.textContent = ("You win! " + numberIntoSymbol(humanChoice) + " beats " + numberIntoSymbol(computerChoice));
                 } else if (humanChoice === 2 && computerChoice !== 3) {
                     humanScore++;
-                    alert("You win! " + numberIntoSymbol(humanChoice) + " beats " + numberIntoSymbol(computerChoice));
+                    display.textContent = ("You win! " + numberIntoSymbol(humanChoice) + " beats " + numberIntoSymbol(computerChoice));
                 } else if (humanChoice === 3 && computerChoice !== 1) {
                     humanScore++;
-                    alert("You win! " + numberIntoSymbol(humanChoice) + " beats " + numberIntoSymbol(computerChoice));
+                    display.textContent = ("You win! " + numberIntoSymbol(humanChoice) + " beats " + numberIntoSymbol(computerChoice));
                 } else {
                     computerScore++;
-                    alert("You lose! " + numberIntoSymbol(humanChoice) + " is beaten by " + numberIntoSymbol(computerChoice));
+                    display.textContent = ("You lose! " + numberIntoSymbol(humanChoice) + " is beaten by " + numberIntoSymbol(computerChoice));
                 }
             }
 
