@@ -21,6 +21,9 @@
         const display = document.createElement("div");
         body.appendChild(display);
 
+        const winWindow = document.createElement("div");
+        body.appendChild(winWindow);
+
         rock.textContent = "ROCK";
         paper.textContent = "PAPER";
         scissors.textContent = "SCISSORS";
@@ -47,19 +50,18 @@
                         playRound(3, getComputerChoice());
                         console.log("HUMAN:" + humanScore + " COMPUTER:" + computerScore);
                         break;
-                }
-                if (humanScore === 5 || computerScore === 5) {
+                }}
+            if (humanScore === 5 || computerScore === 5) {
                     if (humanScore > computerScore) {
-                        alert("YOU WIN THE GAME");
+                        winWindow.textContent = ("YOU WIN THE GAME");
                         humanScore = 0;
                         computerScore = 0;
                     } else {
-                        alert("COMPUTER WINS THE GAME");
+                        winWindow.textContent = ("COMPUTER WINS THE GAME");
                         humanScore = 0;
                         computerScore = 0;
                     }
-                }
-            } 
+            }
         })
 
         function getComputerChoice() {
@@ -79,19 +81,6 @@
 
         let computerScore = 0;
         let humanScore = 0;
-
-        function playGame() {
-            humanScore = 0;
-            computerScore = 0;
-
-            if (humanScore === computerScore) {
-                alert('The game was a draw!');
-            } else if (humanScore > computerScore) {
-                alert('You win the game!');
-            } else {
-                alert('Computer wins the game!');
-            }
-        }
 
         function playRound(humanChoice, computerChoice) {
                 if (humanChoice === computerChoice) {
