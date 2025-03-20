@@ -48,20 +48,19 @@
                         console.log("HUMAN:" + humanScore + " COMPUTER:" + computerScore);
                         break;
                 }
-            } else if (humanScore > computerScore) {
-                alert("YOU WIN THE GAME");
-                humanScore = 0;
-                computerScore = 0;
-
-            } else {
-                alert("COMPUTER WINS THE GAME");
-                humanScore = 0;
-                computerScore = 0;
-            }
+                if (humanScore === 5 || computerScore === 5) {
+                    if (humanScore > computerScore) {
+                        alert("YOU WIN THE GAME");
+                        humanScore = 0;
+                        computerScore = 0;
+                    } else {
+                        alert("COMPUTER WINS THE GAME");
+                        humanScore = 0;
+                        computerScore = 0;
+                    }
+                }
+            } 
         })
-
-
-        console.log('WE');
 
         function getComputerChoice() {
             return numberResponsive = (Math.round(Math.random()) + Math.round(Math.random()) + 1);
